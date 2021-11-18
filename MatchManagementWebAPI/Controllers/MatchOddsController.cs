@@ -51,9 +51,7 @@ namespace MatchManagementWebAPI.Controllers
             if (!_matchOddService.CanAddMatchOdd(matchOddModel.MatchId, matchOddModel.Specifier))
                 return NotFound($"Match odd with specifier:{matchOddModel.Specifier} already exists");
 
-            _matchOddService.CreateMatchOdd(matchOddCreateDto);
-            
-            var matchOddReadDto = _matchOddService.MapMatchOddToMatchOddReadDto(matchOddModel);
+            var matchOddReadDto = _matchOddService.CreateMatchOdd(matchOddCreateDto);
 
             return CreatedAtRoute(nameof(GetMatchOddById), new { Id = matchOddReadDto.Id }, matchOddReadDto);
         }
