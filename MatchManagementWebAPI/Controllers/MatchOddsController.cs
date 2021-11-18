@@ -64,9 +64,7 @@ namespace MatchManagementWebAPI.Controllers
             if (matchOddModelFromRepo == null)
                 return NotFound();
 
-            matchOddModelFromRepo = _matchOddService.MapMatchOddUpdateDtoToMatchOdd(matchOddUpdateDto);
-
-            _matchOddService.UpdateMatchOdd(matchOddModelFromRepo);
+            _matchOddService.PutMatchOdd(id, matchOddUpdateDto);
 
             return NoContent();
         }
