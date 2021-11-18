@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "37a2c310-f165-49fc-bd58-2e7da53f3946",
+		"name": "MatchManagerAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - GetAllMatches",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/Matches",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"Matches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - GetMatchByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/Matches/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"Matches",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - CreateMatch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"This is a postman test3\",\r\n    \"matchDate\": \"2022-01-01T00:00:00\",\r\n    \"matchTime\": \"18:30:00\",\r\n    \"teamA\": \"Barcelona\",\r\n    \"teamB\": \"Manchester Utd.\",\r\n    \"sport\": \"basketball\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/matches",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"matches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - UpdateMatchByID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"description\": \"This was updated by PUT\",\r\n    \"matchDate\": \"1999-01-01T00:00:00\",\r\n    \"matchTime\": \"18:30:00\",\r\n    \"teamA\": \"Barcelona\",\r\n    \"teamB\": \"Manchester Utd.\",\r\n    \"sport\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/Matches/100",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"Matches",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH - PatchMatchByID",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"op\": \"replace\",\r\n        \"path\": \"/TeamA\",\r\n        \"value\": \"Changed by Patch\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/Matches/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"Matches",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEL - DeleteMatchByID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/Matches/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"Matches",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - GetAllMatchOdds",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/MatchOdds",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"MatchOdds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - GetMatchOddByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/MatchOdds/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"MatchOdds",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - CreateMatchOdd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 6,\r\n    \"matchId\": 11,\r\n    \"specifier\": 1,\r\n    \"odd\": 3.1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/MatchOdds",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"MatchOdds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - UpdateMatchOddByID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 6,\r\n    \"matchId\": 11,\r\n    \"specifier\": 1,\r\n    \"odd\": 4.1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/MatchOdds/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"MatchOdds",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH - PatchMatchByID",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"op\": \"replace\",\r\n        \"path\": \"/odd\",\r\n        \"value\": \"1.111\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/MatchOdds/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"MatchOdds",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
