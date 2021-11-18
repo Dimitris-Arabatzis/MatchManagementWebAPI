@@ -38,7 +38,8 @@ namespace MatchManagementWebAPI.Services
         public Match GetMatchById(int id)
         {
             var match = _matchRepo.GetMatchById(id);
-            match.MatchOdds = _matchOddRepo.GetMatchOdds().Where(x => x.MatchId == match.Id).ToList();
+            if(match != null)
+                match.MatchOdds = _matchOddRepo.GetMatchOdds().Where(x => x.MatchId == match.Id).ToList();
             return (match);
         }
 

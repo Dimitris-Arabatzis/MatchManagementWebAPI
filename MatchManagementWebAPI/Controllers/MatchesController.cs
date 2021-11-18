@@ -48,7 +48,6 @@ namespace MatchManagementWebAPI.Controllers
             var matchItem = _matchService.GetMatchById(id);
             if(matchItem != null)
             {
-
                 return Ok(_matchService.MapMatchToMatchReadDto(matchItem));
             }
             return NotFound();
