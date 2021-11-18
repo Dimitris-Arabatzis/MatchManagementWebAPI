@@ -285,6 +285,27 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "DEL -DeleteMatchOddByID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/MatchOdds/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"MatchOdds",
+						"5"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
