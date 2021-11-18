@@ -120,10 +120,7 @@ namespace MatchManagementWebAPI.Controllers
             if (!TryValidateModel(matchToPatch))
                 return ValidationProblem(ModelState);
 
-            matchModelFromRepo = _matchService.MapMatchUpdateDtoToMatch(matchToPatch);
-
-            _matchService.UpdateMatch(matchModelFromRepo);
-
+            _matchService.PutMatch(id,matchToPatch);
 
             return NoContent();
         }

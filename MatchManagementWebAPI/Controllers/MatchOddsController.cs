@@ -84,11 +84,8 @@ namespace MatchManagementWebAPI.Controllers
             if (!TryValidateModel(matchOddToPatch))
                 return ValidationProblem(ModelState);
 
-            matchOddModelFromRepo = _matchOddService.MapMatchOddUpdateDtoToMatchOdd(matchOddToPatch);
-
-            _matchOddService.UpdateMatchOdd(matchOddModelFromRepo);
-
-
+            _matchOddService.PutMatchOdd(id, matchOddToPatch);
+            
             return NoContent();
         }
 
