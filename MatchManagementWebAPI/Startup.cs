@@ -32,10 +32,21 @@ namespace MatchManagementWebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MatchManagementContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("MatchManagementDbConnection")));
+            var server = Configuration["DBServer"] ?? "db";
+            //var port = Configuration["DBPort"] ?? "1433";
+            var user = Configuration["DBUser"] ?? "SA";
+            var password = Configuration["DBPassword"] ?? "MatchManagementAPI@";
+            var database = Configuration["DBase"] ?? "MatchManagementDb";
+
+
+            //services.AddDbContext<MatchManagementContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("MatchManagementDbConnection")));
+            services.AddDbContext<MatchManagementContext>(opt =>
+                opt.UseSqlServer($"Server={server};Database={database};User Id={user};Password={password}")
+            );
 
             //Newtonsoft Serializer Configuration
-            services.AddControllers().AddNewtonsoftJson(s => {
+            services.AddControllers().AddNewtonsoftJson(s =>
+            {
                 s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             });
 
@@ -90,6 +101,8 @@ namespace MatchManagementWebAPI
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Match Management API");
                 options.RoutePrefix = "";
             });
+
+            DbInitializer.PrepPolulation(app);
         }
     }
 }
